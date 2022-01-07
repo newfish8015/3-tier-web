@@ -1,0 +1,130 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="home.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="zh">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Worth 沃斯</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style>
+        .dropdown-item {
+            color:black;
+        }
+        .top_margin{
+            margin-top: 50px;
+        }
+        #nav1{
+            background-color:black;
+            height:50px;
+        }
+    </style>
+</head>
+<body style="background-color:teal">
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top" style="float:left" id="nav1">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">Worth 沃斯</a>
+                </div>
+                <div class="navbar-collapse collapse" >
+                    <ul class="nav navbar-nav">
+                        <%--<li><a runat="server" href="~/Vehical">Vehical</a></li>
+                        <li><a runat="server" href="~/Service">Service</a></li>
+                        <li><a runat="server" href="~/Driver">Driver</a></li>--%>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="VehicalnavbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Vehical
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="https://localhost:44308/vehical_list/vehical_list"> Product List</a>
+                                <br>
+                                <a class="dropdown-item" href="https://localhost:44308/vehical_search/Categories_search"> Categorise Search</a>
+                                <br>
+                                <a class="dropdown-item" href="https://localhost:44308/vehical_search/keyword_search"> Keyword Search</a>
+                                <br>
+                                <a class="dropdown-item" href="https://localhost:44308/vehical_search/location_search"> Location Search</a>
+                                <br>
+                                <a class="dropdown-item" href="https://localhost:44308/vehical_search/pay_method_search"> Pay Method Search</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="ServicenavbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Service
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="https://localhost:44308/Service/LOG1"> Login</a>
+                                <br>
+                                <a class="dropdown-item" href="https://localhost:44308/Service/SIGNUP1"> Sign Up</a>
+                                <br>
+                                <a class="dropdown-item" href="https://localhost:44308/Service/Search_for"> Check seller information(with List)</a>
+                                <br>
+                                <a class="dropdown-item" href="https://localhost:44308/Service/Search_with_key_word"> Check seller information(with Keywor)</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="DrivernavbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Driver
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="https://localhost:44308/Driver/Driver_List#">Driver List</a>
+                                <br>
+                                <a class="dropdown-item" href="https://localhost:44308/Driver/Driver_Keyword_Search">Driver Search</a>
+                                <br>
+                                <a class="dropdown-item" href="https://localhost:44308/Driver/Driver_Update">Driver Update</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+    </form>
+     <div class="container body-content">
+         <asp:ContentPlaceHolder ID="ClearContent" runat="server">
+         </asp:ContentPlaceHolder>  
+    </div>
+    <hr />
+    <footer>
+       <p>&copy; <%: DateTime.Now.Year %> - Worth 誠摯歡迎您</p>
+    </footer>
+
+</body>
+</html>
